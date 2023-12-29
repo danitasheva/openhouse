@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { ReactElement } from "react";
 import { CommunityType, HomeType, homesInitState, initState } from "./data";
 import Community from "./Community";
@@ -86,4 +86,8 @@ function CommunitiesList() {
   return pageContent;
 }
 
-export default CommunitiesList;
+// export default CommunitiesList;
+
+const MemoizedCommunitiesList = memo<typeof CommunitiesList>(CommunitiesList);
+
+export default MemoizedCommunitiesList;
