@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+### Steps to set up and run locally from CLI console
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- `git clone https://github.com/danitasheva/openhouse.git`
+- `npm install`
+- `npm run dev`
+- Navigate to `http://localhost:3000` in browser
 
-Currently, two official plugins are available:
+### Notes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The code in GitHub is not fully functional because of some CORS errors which I encountered. In order to work around those errors, I put a `proxy` declaration in my `package.json` file. This is a temporary solution which I only used to complete the task. The proper way to fix that is to configure the server side so the response includes an `Access-Control-Allow-Origin` header.
 
-## Expanding the ESLint configuration
+In order to have something more or less functional, I hard-coded the API responses and deployed that version to AWS Amplify at [https://development.dtolb9yev29n.amplifyapp.com/](https://development.dtolb9yev29n.amplifyapp.com/).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+For code review, please use the `main` branch from [https://github.com/danitasheva/openhouse.git](https://github.com/danitasheva/openhouse.git).
 
-- Configure the top-level `parserOptions` property like this:
+### The things I would have done if I had more time
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Refactor to improve the file and folder structure
+- Add a dropdown to select communities by groups
+- Add and use the React Router DOM library to display a dedicated page for each community, with homes located in that community
+- Write unit tests with Jest and React Testing Library
