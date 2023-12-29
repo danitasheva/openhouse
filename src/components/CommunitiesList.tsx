@@ -13,23 +13,50 @@ function CommunitiesList() {
 
   let content: ReactElement | ReactElement[] = <p>Loading...</p>;
 
-  async function fetchCommunities() {
-    const response = await fetch(COMMUNITIES_URL);
-    const data = await response.json();
-    console.log("data", data);
-    setCommunities(data);
-  }
+  // async function fetchCommunities() {
+  //   const response = await fetch(COMMUNITIES_URL);
+  //   const data = await response.json();
+  //   console.log("data", data);
+  //   setCommunities(data);
+  // }
 
-  async function fetchHomes() {
-    const response = await fetch(HOMES_URL);
-    const data = await response.json();
-    console.log("homes", data);
-    setHomes(data);
-  }
+  // async function fetchHomes() {
+  //   const response = await fetch(HOMES_URL);
+  //   const data = await response.json();
+  //   console.log("homes", data);
+  //   setHomes(data);
+  // }
+
+  // useEffect(() => {
+  //   fetchCommunities();
+  //   fetchHomes();
+  // }, []);
+
+  const getAllCommunities = async () => {
+    try {
+      const res = await fetch(COMMUNITIES_URL);
+      const communities = await res.json();
+      console.log("res", res);
+      setCommunities(communities);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getAllHomes = async () => {
+    try {
+      const res = await fetch(HOMES_URL);
+      const homes = await res.json();
+      console.log("homes", homes);
+      setHomes(homes);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
-    fetchCommunities();
-    fetchHomes();
+    getAllCommunities();
+    getAllHomes();
   }, []);
 
   communities.sort((a, b) => a.name.localeCompare(b.name));
