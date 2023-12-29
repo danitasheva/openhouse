@@ -253,6 +253,7 @@ function CommunitiesList() {
   if (communities?.length) {
     content = communities.map((community) => {
       return (
+        // <>
         <Community
           key={community.id}
           id={community.id}
