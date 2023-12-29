@@ -11,34 +11,13 @@ const HOMES_URL =
 function CommunitiesList() {
   const [communities, setCommunities] = useState<CommunityType[]>(initState);
   const [homes, setHomes] = useState<HomeType[]>(homesInitState);
-  // const [isError, setIsError] = useState<string>("");
 
   let content: ReactElement | ReactElement[] = <p>Loading...</p>;
-
-  // async function fetchCommunities() {
-  //   const response = await fetch(COMMUNITIES_URL);
-  //   const data = await response.json();
-  //   console.log("data", data);
-  //   setCommunities(data);
-  // }
-
-  // async function fetchHomes() {
-  //   const response = await fetch(HOMES_URL);
-  //   const data = await response.json();
-  //   console.log("homes", data);
-  //   setHomes(data);
-  // }
-
-  // useEffect(() => {
-  //   fetchCommunities();
-  //   fetchHomes();
-  // }, []);
 
   const getAllCommunities = async () => {
     try {
       const res = await fetch(COMMUNITIES_URL);
       const communities = await res.json();
-      console.log("res", res);
       setCommunities(communities);
     } catch (err) {
       console.log(err);
@@ -49,7 +28,6 @@ function CommunitiesList() {
     try {
       const res = await fetch(HOMES_URL);
       const homes = await res.json();
-      console.log("homes", homes);
       setHomes(homes);
     } catch (err) {
       console.log(err);
@@ -90,10 +68,6 @@ function CommunitiesList() {
       communityItem.averagePrice = totalPrice / count;
     }
   });
-
-  // if (isError) {
-  //   content = <p className="errmsg">{isError}</p>;
-  // }
 
   if (communities?.length) {
     content = communities.map((community) => {
