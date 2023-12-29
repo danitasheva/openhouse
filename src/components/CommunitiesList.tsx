@@ -9,7 +9,7 @@ const HOMES_URL = "/homes.json";
 function CommunitiesList() {
   const [communities, setCommunities] = useState<CommunityType[]>(initState);
   const [homes, setHomes] = useState<HomeType[]>(homesInitState);
-  const [isError, setIsError] = useState<string>("");
+  // const [isError, setIsError] = useState<string>("");
 
   let content: ReactElement | ReactElement[] = <p>Loading...</p>;
 
@@ -89,9 +89,9 @@ function CommunitiesList() {
     }
   });
 
-  if (isError) {
-    content = <p className="errmsg">{isError}</p>;
-  }
+  // if (isError) {
+  //   content = <p className="errmsg">{isError}</p>;
+  // }
 
   if (communities?.length) {
     content = communities.map((community) => {
