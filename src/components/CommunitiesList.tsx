@@ -3,10 +3,8 @@ import { ReactElement } from "react";
 import { CommunityType, HomeType, homesInitState, initState } from "./data";
 import Community from "./Community";
 
-const COMMUNITIES_URL =
-  "https://storage.googleapis.com/openhouse-ai-fe-coding-test/communities.json";
-const HOMES_URL =
-  "https://storage.googleapis.com/openhouse-ai-fe-coding-test/homes.json";
+const COMMUNITIES_URL = "/communities.json";
+const HOMES_URL = "/homes.json";
 
 function CommunitiesList() {
   const [communities, setCommunities] = useState<CommunityType[]>(initState);
